@@ -9,6 +9,8 @@
 //stahneme si instalaci: https://git-scm.com/downloads
 //v instalaci az se vas to zepta na editor, tka misto VIM vyberte Visual Studio Code
 //az se vas to zepta jak pojmenovat hlavni vetev, tak misto MASTER vyberte volbu MAIN
+//az se vas to zepta zda chcete pouzit credential manager, tak vyberte volbu None, pokud pocitac bude pouzivat vice lidi
+Pokud budete pocitac pouzivat sami muzete nechat "ano"
 //zbytek instalace muzete nechat stejny a proklikat se za na konec
 
 //GIT stejne jako COMPOSER nema graficke rozhrani (nema tlacitka a ovladaci prvky), vsehcno se musi delat pomoci prikazu
@@ -16,7 +18,7 @@
 //je vsak mozne si do Visualu stahnout graficke rozhrani
 //nejake zakladni ovladaci prvky uz vidusla ma
 //otevrete zalozku Source Control (ctrl + shift + G)
-//pokud tma vidite 2 tlaticka (initialize repo a publish to github), tak to znamena ze visual studio rozpoznalo, ze mate ve stroji nainstalovany git
+//pokud tma vidite 2 tlacitka (initialize repo a publish to github), tak to znamena ze visual studio rozpoznalo, ze mate ve stroji nainstalovany git
 
 //pokud kliknete na tlacitko init repo, tak se vytvori repozitar na korenove slozce (v nasem priapde by to bylo "programator-unor")
 //pokud chcte vytvorit historii v nejake konkretni slozce, tak je lepsi pouzit terminalovy prikazu
@@ -28,8 +30,8 @@
 //tato neviditelna slozka se jmenuje ".git"
 //abyste videli v windowsu neviditelne slozky, tak je potreba zapnout v pruzkuminku volbu zobrazit skryte soubory
 
-//slozka .git v sobe obsahuje celou historii projektu
-//dokud mate slozku .git, tak je uplne jedno jake soubory smazete vzdy se to da zpetne obnovit
+//slozka .git vsobe obsahuje celou historii projektu
+//dokud mate slozku .git, tak je uplne jedno jake soubory smazete, vzdy se to da zpetne obnovit
 
 //git zacne sledovat vase zmeny
 //u souboru se pak mohou objevit nejake pismenka
@@ -49,3 +51,53 @@ D - deleted, soubor v historii existuje, ale nekdo ho oznacil za smazany
 //staging area je prostor pro soubory, ktere se chystate zapsat do repozitare
 //vetisnou chcete aby byly seskupeny soubory, ktere maji spolu neco spolecneho
 //diky staging area si muzte vsechnu praci, kterou jste za ten den udelali rozdelit do mensich commitu
+
+Pred commitem je potreba definovat idetifikacni udaje autora. Jinak to vyhodi chybu.
+# git config --global user.name "Student"
+# git config --global user.email "student@student.cz"
+
+//commit muzeme udelat pomoci grafickeho rozhrani nebo zase pomoci prikazu
+//A) graficke rozhani - Kazdy soubor u sebe bude mit nejake pismenko, ktere rika v jakem stavu soubor je. Pokud soubor chcme dostat do stage faze aby bylo pripravene na zapis do historie, tak klikneme na + vedle souboru. Po tom co naklikame vsehcnmy soubory, ktere chceme, tak pridame nahoru komentar, ktery bude popisovat co vase soubory vlastne delaji. Napr. "prvni commitnuti navodu". Pote kliknete na tlacitko commit a proveze se zapis do repozitare.
+
+//vzdycky pojmenovavejte commit tak, aby bylo hend jasne co commit vykona
+//tip: Vzdy zacnete vetou "Co tento commit udela, kdyz ho nekdo adoptuje?" a odpoved pouzijte jako komentar commitu
+//napr. "prida kontaktni formular", "odebere zastaralou listu", "opravi chybu rezervace"
+
+//B) commitovani pomici prikazu
+//otevrem terminal ve slozce projektu
+//zjistit jake soubory se zmenily
+//# git status
+//presun souboru do stagovaci faze
+//# git add nazev-souboru
+//pokud nechcete pridavat soubory po jenom, tak muzete pouzit
+//# git add .
+//nebo
+//# git add ./
+//tento prikaz provede commit souboru, ktere jsou ve stage fazi
+//# git commit -m "komentar commitu"
+//pokud se chcete podivat na seznam vsech vasich commitu tak sputit tento prikaz
+//# git log
+
+//obcas mate v rpacovni slozce projektu soubory, ktere jsou citlive a nemely by se nikdy dostat ven
+//nebo to mohou byt knihovny
+//tyto sobory muzeme uvest do .gitignore, aby je git vubec nevidel a sledoval, tato soubory se pak nikdyo do commitu nedostanou
+//abychom pri commitovani nemuseli furt manualne citlive soubory odebirat, tak je muzeme uvest do souboru .gitignore
+//kazdy soubor/slozka uvedeny v .gitignore ma svuj vlastni radek
+//slozky vzdy budou koncit /
+//pokud chcete vyignorovat vsechny sobory s nejakou koncovkou (treba public.log, admin.log, testing.log), tak muzete napsat jenom *.log
+//hvezdicka znamena libovolny string
+
+//pokud pracujete sami, tak staci mist historii pouze u sebe na localu (local repo)
+//pokuda ale chce pracovat v typu, tka je potreba localni repo nakopirovat do remote repo (rika se tomu origin)
+//ostatni spolupracovnici budou vzdy synchronizovat sve localni repo s originem
+//pokud projekt u sebe jeste spolupracovnik nema, tak musi provest clonovani (nakopirovani celeho repo z remotu do zarizeni a vytvorit se local repo)
+//po tom co vas spolupracovnik dokonci svoje ukoly, tak muze do remote repo "pushnout" zmeny
+//pokud nedojde ke klonflitu, tak gihub zmeny prijme a zaintegruje
+//pokud ostatni spolupraocvnici chteji mit aktualni verzi tak musi udelat "pull"
+//pri pushovani muze nastat konflikt (2 lidi se snazi pushnout zmeny ve stejnem souboru a github nevi ktereho uprednostnit nebo jak tyto dva kody spojit)
+//pokud nemate prava pushovat dohlavni vetve programu, tak musite vytvorit "pull request"
+//PR se pouziva k tomu, aby vas senior vasi praci zkontorloval
+//pokud bude vse vporadku,tak vas senior kod prijme a gihub ho zaintegruje do hlavni vetve
+
+//zalozte si ucet na https://github.com/
+//alternativne muzete pouzit i jine sluzby GitLab nebo BitBucket
