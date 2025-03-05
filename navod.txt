@@ -101,3 +101,19 @@ Pred commitem je potreba definovat idetifikacni udaje autora. Jinak to vyhodi ch
 
 //zalozte si ucet na https://github.com/
 //alternativne muzete pouzit i jine sluzby GitLab nebo BitBucket
+
+//typicky v praci nikdy nebudete provadet zmeny na hlavni vetvi main
+//vsecho co budete programovat bude mit vlastni vetev
+//nazev vetve se bude vzdy ridit pravidly firmy
+//nazev vetve nesmi obshaovat mezery misto mezer pouzijte - nebo /
+//muze vypadat treba takto
+//typ/cislo-tiketu-jmeno-cil-vetve
+feature/5146-tony-rezervacni-formular
+
+feature - nova vec co program jeste nema
+hotfix - docasne reseni pro nejaky problem
+bugfix - trvale reseni problemu
+refator - prepsani funkcniho kodu do lepsi formy
+wip - rozdelana/nedokoncena prace (work in progress)
+
+//ve firme budete ukoly dostavat ve forme tiketu, kazdy tiket ma nejake identifikacni cislo
