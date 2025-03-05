@@ -143,4 +143,12 @@ wip - rozdelana/nedokoncena prace (work in progress)
 //chceme se presunout do branche "feature/712-tony-menu"
 # git checkout feature/712-tony-menu
 
+//kurzor, kretemu se rika HEAD ukazuje na uzel, kter yje zorvna aktivni
+//kdyz napisete git checkout nazev-branche, tak s HEAD posune na posleni/nejnovejsi uzel dane branche
+//git checkout se muze hejbat mezi branchema a mezi uzlama danne brachi
+
 //ted kdyz uz jsme ve spravne branchi, tak muzeme zacit programovat menu
+
+//po tom co mame uz naprogramove menu, tak muzeme nase upravy poslat do GitHubu
+//predtim jsem pouzili graficke rozhrani, nyni si to ukazeme prikazem
+# git push orgin feature/712-tony-menu
